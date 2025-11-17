@@ -1,0 +1,44 @@
+Aim:
+To impement the stack operation on a stack and display the resulting stack elements.
+
+Code:
+
+#include <stdio.h>
+#define MAX 100
+
+int stack[MAX], top = -1;
+
+void push(int x) {
+    if(top == MAX - 1) printf("Stack overflow\n");
+    else stack[++top] = x;
+}
+
+void pop() {
+    if(top == -1) printf("Stack underflow\n");
+    else printf("Popped element: %d\n", stack[top--]);
+}
+
+int main() {
+    int n, x, i;
+    printf("Enter number of elements to push: ");
+    scanf("%d", &n);
+    for(i = 0; i < n; i++) {
+        printf("Enter element %d: ", i + 1);
+        scanf("%d", &x);
+        push(x);
+    }
+    printf("Enter number of elements to pop: ");
+    scanf("%d", &n);
+    for(i = 0; i < n; i++) pop();
+    return 0;
+}
+OUTPUT:Enter number of elements to push: 
+ Enter element 1:10
+ Enter element 2:20
+Enter element 3:30
+Enter number of elements to push:
+Enter element 1:10
+Enter element 2:20
+Enter element 3:30
+Enter number of elements to pop Popped element: 30
+Popped element: 20
